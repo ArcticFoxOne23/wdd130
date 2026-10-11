@@ -20,16 +20,17 @@ body {
     margin: 0;
     padding: 0;
 }
+
 header {
     background-color: var(--background);
-}
-.home-title {
-    color: var(--accent1-color);
-    font-family: var(--fancy-font);
-    font-size: 2em;
-    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 150px auto;
 }
 
+nav {
+    display: flex;
+    justify-content: space-around;
+}
 nav a {
     text-align: center;
     text-decoration: none;
@@ -41,11 +42,20 @@ nav a:hover {
     color: var(--secondary-color);
 }
 
+.home-title {
+    color: var(--accent1-color);
+    font-family: var(--fancy-font);
+    font-size: 2em;
+    margin-top: 10px;
+}
+
 .logo {
     width: 80px;
 }
 #logo_link {
     padding-top: 5px;
+    justify-self: center;
+    align-self: center;
 }
 
 #hero-msg h1, #hero-msg h4 {
