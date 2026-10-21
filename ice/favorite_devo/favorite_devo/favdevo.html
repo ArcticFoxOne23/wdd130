@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Favorite Devotionals</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="https://pyscript.net/releases/2026.3.1/core.css">
+  <script type="module" src="https://pyscript.net/releases/2026.3.1/core.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-image">
+        <h1>My Favorite<br>Devotionals</h1>
+      </div>
+    </header>
+    <main>
+      <div class="content-box">
+         My favorite talks!
+        <table>
+          <tr class="table-odd" id="table-head">
+            <th>Speaker</th>
+            <th>Title</th>
+            <th>Location</th>
+            <th>Year</th>
+          </tr>
+          <tr class="table-even">
+            <td>The first devotional this semester</td>
+            <td>I don't think it had a title</td>
+            <td>I-Center</td>
+            <td>2026</td>
+          </tr>
+          <tr class="table-odd">
+            <td>Elder Thabo</td>
+            <td>"Jesus Is The Life And Light Of The World"</td>
+            <td>General Conference</td>
+            <td>2026</td>
+          </tr>
+          <tr class="table-even">
+            <td>Thomas S Monson</td>
+            <td>"I Know That My Redemer Lives"</td>
+            <td>General Conference</td>
+            <td>2007</td>
+          </tr>
+        </table>
+        I know it's late, but I did the thing! It works! Try it out!<br>
+        <p>Also... maybe forgive the late penalty because I went above and beyond???</p>
+        <form>
+          <label for="in-speaker">Speaker:</label>
+          <input type="text" id="in-speaker" name="in-speaker">
+          <label for="in-title">Title:</label>
+          <input type="text" id="in-title" name="in-title">
+          <label for="in-location">Location:</label>
+          <input type="text" id="in-location" name="in-location">
+          <label for="in-year">Year:</label>
+          <input type="text" id="in-year" name="in-year"><br>
+
+          <input type="submit" id="submit-row">
+        </form>
+        <script type="py">
+          from pyscript import document
+          from pyodide.ffi import create_proxy
+
+          def add_row(event):
+            event.preventDefault()
+
+            value1 = document.getElementById("in-speaker").value
+            value2 = document.getElementById("in-title").value
+            value3 = document.getElementById("in-location").value
+            value4 = document.getElementById("in-year").value
+
+            row = document.createElement("tr")
+            if document.getElementsByClassName("table-even").length == document.getElementsByClassName("table-odd").length:
+              row.className = "table-odd"
+            else:
+              row.className = "table-even"
+
+            def add_cell(values):
+              cell = document.createElement("td")
+              cell.textContent = values
+              row.appendChild(cell)
+
+            add_cell(value1)
+            add_cell(value2)
+            add_cell(value3)
+            add_cell(value4)
+
+            document.querySelector("table").appendChild(row)
+            document.querySelector("form").reset()
+
+          form = document.querySelector("form")
+          form.addEventListener("submit", create_proxy(add_row))
+        </script>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
