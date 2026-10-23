@@ -1,0 +1,40 @@
+body {
+    text-align: center;
+background-color:black;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+    border: 2px solid black;
+    background-color:lightsalmon;
+    
+}
+
+main{
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+h1, h2{
+    color: orange;
+}
+
+h1 {
+    grid-column:3;
+}
+
+img{
+    grid-column: 1/6;
+    justify-self:center;
+}
+
+
+
+p{
+    color:teal;
+}
+
+footer{
+    color:navy;
+}
