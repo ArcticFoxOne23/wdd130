@@ -6,7 +6,6 @@
   grid-template-columns: 300px 300px;
   justify-items:center;
   gap: 20px;
-  outline: 2px, dotted, magenta;
 }
 .red1 { 
   width: 100%; 
