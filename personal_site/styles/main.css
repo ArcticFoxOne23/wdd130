@@ -1,0 +1,10 @@
+body {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    background-color: lightblue;
+}
+
+#logo-link {
+    border-radius: 30%;
+}
+
